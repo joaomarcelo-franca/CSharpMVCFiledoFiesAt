@@ -58,10 +58,8 @@ namespace AtCSharpWebMVC3._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Matricula,Idade,DateTime")] AlunoModel alunoModel)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Matricula,Idade,DateTime,ImageFile,Upload,ImageFileName")] AlunoModel alunoModel)
         {
-            if (ModelState.IsValid)
-            {
                 if(alunoModel.Upload != null)
                 {
                     alunoModel.ImageFileName = alunoModel.Upload.FileName;
@@ -73,17 +71,12 @@ namespace AtCSharpWebMVC3._0.Controllers
                         alunoModel.Upload.CopyTo(filestream);
                     }
                 }
-                alunoModel.ImageFile = alunoModel.ImageFileName;
-                alunoModel.DateTime = DateTime.Now;
-                _context.Add(alunoModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            alunoModel.ImageFile = alunoModel.ImageFileName;
             alunoModel.DateTime = DateTime.Now;
             _context.Add(alunoModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            return View(alunoModel);
+         
         }
 
         // GET: AlunoModels/Edit/5
@@ -107,19 +100,37 @@ namespace AtCSharpWebMVC3._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Matricula,Idade,DateTime")] AlunoModel alunoModel)
+        public async Task<IActionResult> Edit(int id, AlunoModel alunoModel)
         {
+            
             if (id != alunoModel.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
+
+                        alunoModel.ImageFileName = alunoModel.Upload.FileName;
+                        var file1 = Path.Combine
+                            (_environment.ContentRootPath
+                            , "wwwroot/imagens"
+                            , alunoModel.Upload.FileName);
+
+                        using (var filestream = new FileStream(file1, FileMode.Create))
+                        {
+                            alunoModel.Upload.CopyTo(filestream);
+                        }
+
+
+                alunoModel.ImageFile = alunoModel.ImageFileName;
+                    alunoModel.DateTime = DateTime.Now;
+                    
+
                     _context.Update(alunoModel);
                     await _context.SaveChangesAsync();
+                    
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -133,8 +144,8 @@ namespace AtCSharpWebMVC3._0.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            return View(alunoModel);
+            
+            
         }
 
         // GET: AlunoModels/Delete/5

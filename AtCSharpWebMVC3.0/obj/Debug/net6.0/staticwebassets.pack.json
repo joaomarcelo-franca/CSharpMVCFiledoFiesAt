@@ -17,6 +17,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\EF1.png",
+      "PackagePath": "staticwebassets\\imagens\\EF1.png"
+    },
+    {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\armario.jpg",
+      "PackagePath": "staticwebassets\\imagens\\armario.jpg"
+    },
+    {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\guts.jpg",
+      "PackagePath": "staticwebassets\\imagens\\guts.jpg"
+    },
+    {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\naruto3.png",
+      "PackagePath": "staticwebassets\\imagens\\naruto3.png"
+    },
+    {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\pinchililin.jpg",
+      "PackagePath": "staticwebassets\\imagens\\pinchililin.jpg"
+    },
+    {
+      "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\imagens\\pinchililin2.jpg",
+      "PackagePath": "staticwebassets\\imagens\\pinchililin2.jpg"
+    },
+    {
       "Id": "C:\\Users\\W-11\\source\\repos\\AtCSharpWebMVC3.0\\AtCSharpWebMVC3.0\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

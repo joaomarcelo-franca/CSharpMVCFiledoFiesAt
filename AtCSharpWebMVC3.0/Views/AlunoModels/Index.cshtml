@@ -10,6 +10,9 @@
     <thead>
         <tr>
             <th>
+                Foto Aluno
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
@@ -18,13 +21,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Idade)
             </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    <img width="50" height="50" src="~/imagens/@Html.DisplayFor(modelItem => item.ImageFileName)" />
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
