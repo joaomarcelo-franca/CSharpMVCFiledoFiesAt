@@ -36,6 +36,14 @@ namespace AtCSharpWebMVC3._0.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageFile")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageFileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Matricula")
                         .HasColumnType("int");
 

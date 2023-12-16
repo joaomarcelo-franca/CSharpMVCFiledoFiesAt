@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AtCSharpWebMVC3._0.Migrations
 {
-    public partial class PrimeiraMigration : Migration
+    public partial class AdicionandoTUDO : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,9 @@ namespace AtCSharpWebMVC3._0.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Matricula = table.Column<int>(type: "int", nullable: false),
                     Idade = table.Column<int>(type: "int", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ImageFile = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +34,8 @@ namespace AtCSharpWebMVC3._0.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Materia = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Materia = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DataDeCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AtCSharpWebMVC3._0.Migrations
 {
     [DbContext(typeof(AtCSharpWebMVC3_0Context))]
-    [Migration("20231216003859_AdicionandoColunaDateTimeProfessor")]
-    partial class AdicionandoColunaDateTimeProfessor
+    [Migration("20231216060412_AdicionandoTUDO")]
+    partial class AdicionandoTUDO
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,14 @@ namespace AtCSharpWebMVC3._0.Migrations
 
                     b.Property<int>("Idade")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageFile")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageFileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Matricula")
                         .HasColumnType("int");

@@ -13,10 +13,12 @@ namespace AtCSharpWebMVC3._0.Controllers
     public class AlunoModelsController : Controller
     {
         private readonly AtCSharpWebMVC3_0Context _context;
+        private IWebHostEnvironment _environment;
 
-        public AlunoModelsController(AtCSharpWebMVC3_0Context context)
+        public AlunoModelsController(AtCSharpWebMVC3_0Context context, IWebHostEnvironment env)
         {
             _context = context;
+            _environment = env;
         }
 
         // GET: AlunoModels
@@ -60,11 +62,27 @@ namespace AtCSharpWebMVC3._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(alunoModel.Upload != null)
+                {
+                    alunoModel.ImageFileName = alunoModel.Upload.FileName;
+                    var file = Path.Combine(_environment.ContentRootPath,
+                        "wwwroot/imagens",
+                        alunoModel.Upload.FileName);
+                    using (var filestream = new FileStream(file, FileMode.Create))
+                    {
+                        alunoModel.Upload.CopyTo(filestream);
+                    }
+                }
+                alunoModel.ImageFile = alunoModel.ImageFileName;
                 alunoModel.DateTime = DateTime.Now;
                 _context.Add(alunoModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            alunoModel.DateTime = DateTime.Now;
+            _context.Add(alunoModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             return View(alunoModel);
         }
 
